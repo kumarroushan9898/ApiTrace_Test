@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: apitrace-test
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/todos
+    envVars:
+      - key: HOST
+        value: 0.0.0.0

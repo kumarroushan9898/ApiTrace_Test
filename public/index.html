@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Todo List</h1>
+        <p id="summary" role="status">Loading tasks…</p>
+      </header>
+
+      <section class="panel" aria-label="Your tasks">
+        <form id="add-task">
+          <label for="new-title">New task</label>
+          <div class="form-row">
+            <input id="new-title" name="title" placeholder="What needs doing?" maxlength="200" required>
+            <button type="submit" disabled>Add task</button>
+          </div>
+        </form>
+        <p id="error" class="error" role="alert" hidden></p>
+        <p id="empty" hidden>No tasks yet. Add one to get started.</p>
+        <ul id="tasks" aria-label="Todo items"></ul>
+      </section>
+    </main>
+
+    <dialog id="edit-task" aria-labelledby="edit-heading">
+      <form>
+        <h2 id="edit-heading">Edit task</h2>
+        <label for="edit-title">Task name</label>
+        <input id="edit-title" name="title" maxlength="200" required autofocus>
+        <p class="error" role="alert" hidden></p>
+        <div class="dialog-actions">
+          <button type="button" class="secondary">Cancel</button>
+          <button type="submit">Save changes</button>
+        </div>
+      </form>
+    </dialog>
+
+    <template id="task-template">
+      <li>
+        <label class="task">
+          <input type="checkbox">
+          <span></span>
+        </label>
+        <div class="task-actions">
+          <button type="button" class="secondary">Edit</button>
+          <button type="button" class="secondary delete">Delete</button>
+        </div>
+      </li>
+    </template>
+  </body>
+</html>
